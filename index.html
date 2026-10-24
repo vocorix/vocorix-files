@@ -1,207 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vokero | Voice AI agents for lenders and real estate teams</title>
-<meta name="description" content="Vokero builds voice agents that answer every lead, qualify it, and transfer the call to your team. English and Spanish. Synced to your CRM.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232A44E8'/%3E%3Cpath d='M8 10l8 13 8-13' stroke='white' stroke-width='3.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vokero — Voice AI & Workflow Infrastructure</title>
+<meta name="description" content="Vokero engineers autonomous voice intake and self-healing workflow pipelines for high-volume service companies and recruiting firms." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#11181C; --mist:#F2F5F4; --paper:#FFFFFF; --cobalt:#2A44E8; --live:#1F9D6B; --line:#D9E0DE; --muted:#55636A;
-  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
-  --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-header{padding:22px 0}
-header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
-.logo{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.02em;text-decoration:none}
-.logo span{color:var(--cobalt)}
-.mail{font-size:15px;color:var(--muted);text-decoration:none}
-.mail:hover{color:var(--ink)}
-
-/* hero */
-.hero{padding:48px 0 88px}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,6vw,68px);line-height:1.02;letter-spacing:-.035em;max-width:13ch}
-.lede{margin-top:24px;font-size:19px;color:var(--muted);max-width:46ch}
-.actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:15px 24px;border-radius:10px;font-weight:500;text-decoration:none;font-size:16px;transition:transform .15s}
-.btn:hover{transform:translateY(-1px)}
-.btn.primary{background:var(--cobalt);color:#fff}
-.btn.ghost{border:1.5px solid var(--ink)}
-.demo-note{margin-top:16px;font-size:14px;color:var(--muted)}
-.demo-note b{color:var(--ink);font-weight:500}
-
-/* call card */
-.call{background:var(--ink);color:#E8EEEC;border-radius:18px;padding:22px 22px 20px;font-size:15px;box-shadow:0 30px 60px -30px rgba(17,24,28,.5)}
-.call-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-family:var(--mono);font-size:13px;color:#9FB0B5}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--live);margin-right:8px;animation:pulse 1.6s infinite}
-@keyframes pulse{50%{opacity:.35}}
-.msg{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:7px 0;opacity:0;transform:translateY(6px);animation:in .45s forwards}
-.msg .who{font-family:var(--mono);font-size:12px;color:#7F9399;padding-top:3px}
-.msg.agent .who{color:#8EA2FF}
-@keyframes in{to{opacity:1;transform:none}}
-.msg:nth-child(2){animation-delay:.4s}.msg:nth-child(3){animation-delay:1.3s}.msg:nth-child(4){animation-delay:2.2s}
-.msg:nth-child(5){animation-delay:3.1s}.msg:nth-child(6){animation-delay:4s}.msg:nth-child(7){animation-delay:4.9s}
-.result{margin-top:14px;padding-top:14px;border-top:1px solid #2A363B;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;opacity:0;animation:in .45s 5.9s forwards}
-.result span::before{content:"\2713\00a0";color:var(--live)}
-.fine{margin-top:12px;font-size:12.5px;color:#7F9399}
-
-/* sections */
-section{padding:84px 0}
-h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4vw,44px);letter-spacing:-.03em;line-height:1.08;max-width:20ch}
-.sub{margin-top:14px;color:var(--muted);max-width:56ch}
-.mist{background:var(--mist)}
-.split{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1.5px solid var(--ink)}
-.split>div{padding:28px 32px 8px 0}
-.split>div+div{padding-left:32px;border-left:1px solid var(--line)}
-h3{font-family:var(--display);font-size:24px;letter-spacing:-.02em;margin-bottom:14px}
-.split ul{list-style:none}
-.split li{padding:10px 0;border-bottom:1px solid var(--line);max-width:44ch}
-.split li:last-child{border-bottom:0}
-
-.steps{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
-.steps div{padding:0 24px 0 0;position:relative}
-.steps div::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--cobalt);color:#fff;font-family:var(--display);font-weight:700;margin-bottom:16px}
-.steps h4{font-family:var(--display);font-size:19px;margin-bottom:6px}
-.steps p{font-size:15.5px;color:var(--muted)}
-
-.facts{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.facts strong{display:block;font-family:var(--display);font-size:clamp(34px,4vw,48px);letter-spacing:-.03em;line-height:1}
-.facts span{display:block;margin-top:8px;color:var(--muted);font-size:15.5px;max-width:28ch}
-
-.cta{background:var(--ink);color:#fff;padding:88px 0}
-.cta h2{max-width:16ch}
-.cta p{margin-top:16px;color:#A9B9BD;max-width:50ch}
-.cta .btn.ghost{border-color:#fff}
-footer{padding:28px 0;font-size:14px;color:var(--muted)}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-
-@media(max-width:860px){
-  .hero .wrap{grid-template-columns:1fr;gap:40px}
-  .split{grid-template-columns:1fr}
-  .split>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:8px}
-  .steps{grid-template-columns:1fr 1fr;row-gap:32px}
-  .facts{grid-template-columns:1fr}
-  section{padding:64px 0}
-}
-@media(max-width:480px){.steps{grid-template-columns:1fr}.msg{grid-template-columns:54px 1fr}}
-@media(prefers-reduced-motion:reduce){
-  .msg,.result{animation:none;opacity:1;transform:none}.dot{animation:none}.btn{transition:none}html{scroll-behavior:auto}
-}
+:root{--bg:#090a0f;--panel:#0e1017;--line:#1e2230;--text:#f3f4f6;--muted:#8e95a5;--green:#10b981;--white:#fff;--mono:'DM Mono',monospace;--sans:'Manrope',sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.5}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}::selection{background:var(--green);color:#06120e}:focus-visible{outline:2px solid var(--green);outline-offset:3px}.shell{max-width:1320px;margin:auto;padding:0 28px}.mono{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted)}.grid-bg{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:100% 74px,74px 100%;opacity:.24;pointer-events:none;position:absolute;inset:0}.site-header{height:72px;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;background:rgba(9,10,15,.92);backdrop-filter:blur(12px)}.header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.12em;font-size:14px}.mark{width:22px;height:22px;border:1px solid var(--text);display:grid;place-items:center;position:relative}.mark:before,.mark:after{content:'';position:absolute;background:var(--bg)}.mark:before{height:1px;width:30px}.mark:after{width:1px;height:30px}.brand span{position:relative;z-index:1;background:var(--bg);padding:1px;font-size:10px}.status{color:var(--green);white-space:nowrap}.nav{display:flex;align-items:center;gap:28px}.nav a{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.03em}.nav a:hover{color:var(--text)}.button{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--white);background:var(--white);color:#090a0f;padding:12px 16px;font-family:var(--mono);font-size:11px;font-weight:500;transition:.2s}.button:hover{background:transparent;color:var(--white)}.button.dark{background:transparent;color:var(--text);border-color:var(--line)}.button.dark:hover{border-color:var(--muted)}.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}.hero-inner{position:relative;display:grid;grid-template-columns:7fr 5fr;min-height:650px}.hero-copy{padding:100px 54px 70px 0;border-right:1px solid var(--line)}.eyebrow{color:var(--green);margin-bottom:24px}.hero h1{font-size:clamp(42px,5.7vw,78px);line-height:1.01;letter-spacing:-.065em;max-width:850px;margin:0;font-weight:700}.hero-lede{color:var(--muted);max-width:600px;font-size:17px;margin:28px 0 32px}.actions{display:flex;flex-wrap:wrap;gap:10px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:72px}.metric{padding:17px 14px 0 0;border-right:1px solid var(--line)}.metric+ .metric{padding-left:14px}.metric:last-child{border:0}.metric strong{display:block;font-size:21px;letter-spacing:-.04em}.metric span{display:block;color:var(--muted);font-family:var(--mono);font-size:10px;margin-top:5px}.console-wrap{padding:92px 0 70px 34px}.console{border:1px solid var(--line);background:rgba(14,16,23,.9);height:100%;min-height:440px}.console-head{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.live{color:var(--green)}.console-tabs{display:flex;border-bottom:1px solid var(--line)}.tab{flex:1;background:none;border:0;color:var(--muted);padding:12px 8px;font-family:var(--mono);font-size:9px;border-right:1px solid var(--line)}.tab.active{color:var(--text);background:#151821}.console-body{padding:18px}.call-id{color:var(--text);font-size:13px;margin-bottom:17px}.wave{height:32px;display:flex;align-items:center;gap:3px;margin-bottom:18px}.wave i{display:block;width:3px;background:var(--green);height:var(--h);animation:wave 1.1s ease-in-out infinite alternate}.wave i:nth-child(2n){animation-delay:.2s}.wave i:nth-child(3n){animation-delay:.4s}@keyframes wave{to{height:5px;opacity:.45}}.transcript{border-bottom:1px solid var(--line);padding-bottom:12px}.line{display:grid;grid-template-columns:52px 1fr;gap:8px;font-size:11px;margin:9px 0}.line b{font-family:var(--mono);font-size:9px;color:var(--green);font-weight:400}.line.agent b{color:#fff}.logs{padding-top:12px}.log{display:grid;grid-template-columns:57px 1fr;gap:8px;font-family:var(--mono);font-size:9px;color:var(--muted);margin:7px 0}.log span:last-child{color:var(--text)}.payload{display:none;white-space:pre-wrap;color:#b9c2d5;font-family:var(--mono);font-size:10px;line-height:1.8}.console.scenario-b .scenario-a{display:none}.console.scenario-b .scenario-b{display:block}.scenario-b{display:none}.scenario-toggle{margin-top:14px;width:100%;background:none;color:var(--muted);border:1px solid var(--line);padding:10px;font-family:var(--mono);font-size:10px;text-align:left}.scenario-toggle:hover{color:var(--text);border-color:var(--muted)}.section{position:relative;border-bottom:1px solid var(--line);padding:92px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}.section h2{font-size:clamp(30px,4vw,53px);line-height:1.04;letter-spacing:-.06em;margin:0;max-width:680px}.section-intro{max-width:380px;color:var(--muted);font-size:14px}.label{color:var(--green);margin-bottom:12px}.pillars{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}.pillar{min-height:340px;padding:24px;border-right:1px solid var(--line);position:relative}.pillar:last-child{border:0}.pillar h3{font-size:19px;line-height:1.2;letter-spacing:-.04em;margin:38px 0 12px}.pillar p{font-size:13px;color:var(--muted);max-width:32ch}.sys{color:var(--green)}.schematic{border:1px solid var(--line);margin-top:28px;height:80px;display:flex;align-items:center;padding:12px;gap:6px}.node{border:1px solid #394152;padding:7px 8px;font-family:var(--mono);font-size:8px;color:#c5ccda}.arrow{font-family:var(--mono);color:var(--green);font-size:12px}.blueprints{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}.blueprint{padding:24px 28px 30px 0;border-right:1px solid var(--line)}.blueprint+ .blueprint{padding-left:28px;border-right:0}.blueprint h3{font-size:20px;letter-spacing:-.04em;margin:8px 0 10px}.blueprint p{color:var(--muted);font-size:13px}.flow{display:flex;align-items:stretch;flex-wrap:wrap;gap:6px;margin:28px 0}.flow .node{flex:1;min-width:115px}.outcome{border-left:2px solid var(--green);padding-left:14px;color:var(--text)!important}.matrix{border:1px solid var(--line)}.matrix-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}.matrix-row:last-child{border:0}.matrix-row>div{padding:18px 20px;font-size:13px;border-right:1px solid var(--line)}.matrix-row>div:last-child{border:0}.matrix-head{color:var(--muted);font-family:var(--mono);font-size:10px!important}.bad{color:#a4aab8}.good{color:var(--green)}.terminal{background:var(--panel);border:1px solid var(--line);padding:54px;display:flex;justify-content:space-between;align-items:center;gap:40px}.terminal h2{font-size:clamp(30px,4vw,54px);line-height:1.05;letter-spacing:-.06em;max-width:700px;margin:0}.terminal p{color:var(--muted);font-size:14px;max-width:600px}.email-box{display:flex;flex-direction:column;gap:10px;min-width:235px}.email-box a{font-family:var(--mono);font-size:12px;color:var(--green)}.copy{background:none;color:var(--muted);border:1px solid var(--line);padding:9px;text-align:left;font-family:var(--mono);font-size:9px}.copy:hover{color:var(--text)}.toast{color:var(--green);font-family:var(--mono);font-size:9px;min-height:14px}.footer{padding:24px 0;color:var(--muted);display:flex;justify-content:space-between}.corner{position:absolute;top:-5px;left:-5px;color:var(--muted);font-family:var(--mono);font-size:13px;line-height:1}
+@media(max-width:900px){.nav{display:none}.hero-inner{grid-template-columns:1fr}.hero-copy{border-right:0;padding:72px 0 0}.console-wrap{padding:45px 0 60px}.pillars,.blueprints{grid-template-columns:1fr}.pillar,.blueprint,.blueprint+.blueprint{border-right:0;border-bottom:1px solid var(--line);padding:24px}.pillar:last-child,.blueprint:last-child{border-bottom:0}.terminal{flex-direction:column;align-items:flex-start;padding:34px 24px}.section-head{display:block}.section-intro{margin-top:18px}}
+@media(max-width:560px){.shell{padding:0 18px}.status{display:none}.hero h1{font-size:43px}.metrics{grid-template-columns:1fr}.metric,.metric+.metric{border-right:0;border-bottom:1px solid var(--line);padding:13px 0}.metric:last-child{border-bottom:0}.matrix-row{grid-template-columns:1fr}.matrix-row>div{border-right:0;border-bottom:1px solid var(--line)}.matrix-row>div:last-child{border-bottom:0}.footer{font-size:10px;gap:14px;flex-direction:column}}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="wrap">
-    <a class="logo" href="/">Voke<span>ro</span></a>
-    <a class="mail" href="mailto:swastik@vokerohq.com">swastik@vokerohq.com</a>
-  </div>
-</header>
-
-<main>
-<div class="hero">
-  <div class="wrap">
-    <div>
-      <h1>Every lead gets answered. Instantly.</h1>
-      <p class="lede">Vokero builds voice agents for lenders and real estate teams. They answer the call, qualify the lead, and transfer it live to your people. English and Spanish. Everything lands in your CRM.</p>
-      <div class="actions">
-        <a class="btn primary" href="tel:+17073406743">Call the demo agent</a>
-        <a class="btn ghost" href="#book">Book a 20 minute call</a>
-      </div>
-      <p class="demo-note">Demo line: <b>+1 (707) 340-6743</b>. Talk to it like a borrower or a home seller would.</p>
-    </div>
-
-    <div class="call" aria-label="Example of a call handled by a Vokero agent">
-      <div class="call-top"><span><i class="dot"></i>Inbound call, 6:42 pm</span><span>after hours</span></div>
-      <div class="msg agent"><span class="who">Agent</span><span>Thanks for calling. Are you looking to buy, refinance, or something else?</span></div>
-      <div class="msg"><span class="who">Caller</span><span>Refinance. Rates dropped and I want to see what I qualify for.</span></div>
-      <div class="msg agent"><span class="who">Agent</span><span>Happy to help. What is the home worth, and about how much do you still owe?</span></div>
-      <div class="msg"><span class="who">Caller</span><span>Around 450, and we owe 290.</span></div>
-      <div class="msg agent"><span class="who">Agent</span><span>Got it. I can connect you with a loan officer right now. One moment.</span></div>
-      <div class="msg agent"><span class="who">Agent</span><span>Transferring you to Dana.</span></div>
-      <div class="result"><span>Qualified</span><span>Warm transfer in 41 seconds</span><span>CRM updated</span></div>
-      <p class="fine">Illustrative call, written for this page.</p>
-    </div>
-  </div>
-</div>
-
-<section class="mist">
-  <div class="wrap">
-    <h2>Built for two kinds of teams</h2>
-    <p class="sub">The agent follows your script, your rules, and your qualification questions. It does not improvise on rates or promises.</p>
-    <div class="split">
-      <div>
-        <h3>Lenders and brokers</h3>
-        <ul>
-          <li>Qualifies borrowers on loan type, amount, and timeline</li>
-          <li>Warm transfer to a loan officer while the caller is still on the line</li>
-          <li>Outbound follow up on new leads within minutes</li>
-          <li>Covers nights and weekends without extra staff</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Real estate and acquisitions</h3>
-        <ul>
-          <li>Answers inbound seller and buyer calls in English or Spanish</li>
-          <li>Outbound calls to new leads, with natural voicemail handling</li>
-          <li>Books appointments straight onto your calendar</li>
-          <li>Passes motivated sellers to your team in real time</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>What happens on every call</h2>
-    <div class="steps">
-      <div><h4>Answers</h4><p>Picks up on the first ring, day or night, with a natural voice.</p></div>
-      <div><h4>Qualifies</h4><p>Asks your questions in your order and records the answers.</p></div>
-      <div><h4>Hands off</h4><p>Transfers live to your team or books a time, based on your rules.</p></div>
-      <div><h4>Logs it</h4><p>Writes the call, summary, and outcome into your CRM.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="mist">
-  <div class="wrap">
-    <h2>Running in production, not in a slide deck</h2>
-    <div class="facts">
-      <div><strong>10+</strong><span>voice agents built and deployed for paying US companies</span></div>
-      <div><strong>4</strong><span>languages shipped: English, Spanish, German, and French</span></div>
-      <div><strong>CRM</strong><span>synced with GoHighLevel, Monday.com, and your existing stack</span></div>
-    </div>
-  </div>
-</section>
-
-<div class="cta" id="book">
-  <div class="wrap">
-    <h2>Hear it before you decide</h2>
-    <p>Call the demo line, then book 20 minutes. We will map your lead flow and tell you plainly whether a voice agent fits.</p>
-    <div class="actions">
-      <a class="btn primary" href="https://cal.com/REPLACE-WITH-YOUR-LINK">Book a 20 minute call</a>
-      <a class="btn ghost" href="tel:+17073406743">Call +1 (707) 340-6743</a>
-    </div>
-  </div>
-</div>
-</main>
-
-<footer>
-  <div class="wrap"><span>&copy; 2026 Vokero</span><a class="mail" href="mailto:swastik@vokerohq.com">swastik@vokerohq.com</a></div>
-</footer>
-
-</body>
-</html>
+<header class="site-header"><div class="shell header-inner"><a class="brand" href="#top"><span class="mark"><span>V</span></span>VOKERO</a><div class="status mono">[ ● SYSTEMS ONLINE · VOICE LATENCY &lt;420MS ]</div><nav class="nav"><a href="#architecture">01 / ARCHITECTURE</a><a href="#deployments">02 / DEPLOYMENTS</a><a href="#reliability">03 / RELIABILITY</a><a class="button" href="mailto:swastik@vokerohq.com">Inquire →</a></nav></div></header>
+<main id="top">
+<section class="hero"><div class="grid-bg"></div><div class="shell hero-inner"><div class="hero-copy"><div class="mono eyebrow">VOICE AI &amp; WORKFLOW INFRASTRUCTURE STUDIO</div><h1>We engineer autonomous voice intake and self-healing workflow pipelines.</h1><p class="hero-lede">Vokero replaces missed inbound calls, manual lead qualification, and brittle automation glue with deterministic voice agents and production-grade backend orchestration.</p><div class="actions"><a class="button" href="mailto:swastik@vokerohq.com?subject=Vokero%20Architecture%20Audit">Request Architecture Audit</a><a class="button dark" href="#deployments">Inspect Live Blueprints ↓</a></div><div class="metrics"><div class="metric"><strong>&lt; 450ms</strong><span>TURN-TO-TURN VOICE LATENCY</span></div><div class="metric"><strong>24/7/365</strong><span>AUTONOMOUS CALENDAR DISPATCH</span></div><div class="metric"><strong>99.98%</strong><span>WEBHOOK DELIVERY &amp; RETRY UPTIME</span></div></div></div><div class="console-wrap"><div class="console" id="console"><div class="console-head mono"><span><span class="live">●</span> LIVE CALL &amp; STATE MACHINE</span><span>NODE_01 / US-WEST</span></div><div class="console-tabs"><button class="tab active" data-tab="telemetry">[LIVE CALL TELEMETRY]</button><button class="tab" data-tab="payload">[WEBHOOK PAYLOAD]</button></div><div class="console-body"><div class="telemetry"><div class="call-id mono">+1 (415) 890-XXXX → VOKERO_VOICE_NODE_01</div><div class="wave" aria-label="Live call audio waveform"><i style="--h:18px"></i><i style="--h:28px"></i><i style="--h:12px"></i><i style="--h:24px"></i><i style="--h:32px"></i><i style="--h:16px"></i><i style="--h:26px"></i><i style="--h:10px"></i><i style="--h:22px"></i><i style="--h:30px"></i><i style="--h:14px"></i><i style="--h:25px"></i><i style="--h:18px"></i><i style="--h:31px"></i><i style="--h:11px"></i><i style="--h:23px"></i><i style="--h:29px"></i><i style="--h:15px"></i><i style="--h:25px"></i><i style="--h:12px"></i><i style="--h:28px"></i><i style="--h:17px"></i><i style="--h:22px"></i><i style="--h:30px"></i><i style="--h:13px"></i><i style="--h:24px"></i><i style="--h:18px"></i><i style="--h:29px"></i><i style="--h:10px"></i><i style="--h:21px"></i></div><div class="transcript scenario-a"><div class="line"><b>CALLER</b><span>I'm moving next month. Can someone give me an estimate?</span></div><div class="line agent"><b>AGENT</b><span>Absolutely. What zip code are we moving from, and where are you headed?</span></div><div class="line"><b>CALLER</b><span>94107 to 95014. Do you have anything on Tuesday?</span></div><div class="line agent"><b>AGENT</b><span>I found three openings. I'll lock 10:30 and send confirmation now.</span></div></div><div class="transcript scenario-b"><div class="line"><b>CALLER</b><span>I'm looking for warehouse work and can start right away.</span></div><div class="line agent"><b>AGENT</b><span>Great. Are you available for a 6 AM shift and do you have forklift experience?</span></div><div class="line"><b>CALLER</b><span>Yes to both. I can start Monday.</span></div><div class="line agent"><b>AGENT</b><span>Thanks. I've sent your structured interview to the recruiting team.</span></div></div><div class="logs scenario-a"><div class="log"><span>00:01.12</span><span>SIP_INVITE_RECEIVED</span></div><div class="log"><span>00:08.40</span><span>INTENT_CLASSIFIED: ESTIMATE_BOOKING</span></div><div class="log"><span>00:14.05</span><span>GHL_CALENDAR_QUERY: 3_SLOTS_OPEN</span></div><div class="log"><span>00:22.80</span><span>APPOINTMENT_LOCKED_AND_SMS_DISPATCHED</span></div></div><div class="logs scenario-b"><div class="log"><span>00:02.04</span><span>OUTBOUND_CALL_CONNECTED</span></div><div class="log"><span>00:11.20</span><span>INTENT_CLASSIFIED: APPLICANT_SCREEN</span></div><div class="log"><span>00:28.12</span><span>COMPETENCY_SCORE: 92 / 100</span></div><div class="log"><span>00:34.70</span><span>ATS_RECORD_SYNC_AND_HANDOFF</span></div></div><div class="payload">{\n  "event": "appointment.locked",\n  "node": "VOKERO_VOICE_NODE_01",\n  "lead_id": "ld_8f2a91",\n  "calendar": "ghl_live_dispatch",\n  "slot": "2026-10-28T10:30:00-07:00",\n  "retry_policy": "exponential_3x"\n}</div><button class="scenario-toggle" id="scenario">↻ SCENARIO A: MOVING &amp; FIELD SERVICE DISPATCH</button></div></div></div></div></div></section>
+<section class="section" id="architecture"><div class="shell"><div class="section-head"><div><div class="mono label">01 // CORE INFRASTRUCTURE PILLARS</div><h2>Systems that keep revenue moving.</h2></div><p class="section-intro">Not a prompt wrapped around a phone number. Each deployment is a connected operational system with observability, retries, and an accountable owner.</p></div><div class="pillars"><article class="pillar"><div class="mono sys">SYS-01</div><h3>Autonomous Inbound &amp; Outbound Voice Agents</h3><p>Custom-prompted voice systems that handle interruptions, verify service zip codes, qualify applicants, and execute warm human transfers without robotic lag.</p><div class="schematic"><span class="node">SIP</span><span class="arrow">→</span><span class="node">INTENT</span><span class="arrow">→</span><span class="node">HANDOFF</span></div></article><article class="pillar"><div class="mono sys">SYS-02</div><h3>Live Calendar &amp; CRM Dispatch Engines</h3><p>Bidirectional integrations with GoHighLevel, Jobber, Workiz, Salesforce, and custom ATS platforms that lock availability while the caller is still on the line.</p><div class="schematic"><span class="node">CALL</span><span class="arrow">→</span><span class="node">AVAILABILITY</span><span class="arrow">→</span><span class="node">BOOKED</span></div></article><article class="pillar"><div class="mono sys">SYS-03</div><h3>Self-Healing Orchestration Pipelines</h3><p>Containerized n8n, Node.js, PostgreSQL, and Redis systems with idempotency keys, dead-letter handling, and automated Slack/SMS failure alerts.</p><div class="schematic"><span class="node">QUEUE</span><span class="arrow">→</span><span class="node">RETRY</span><span class="arrow">→</span><span class="node">ALERT</span></div></article></div></div></section>
+<section class="section" id="deployments"><div class="shell"><div class="section-head"><div><div class="mono label">02 // PRODUCTION BLUEPRINTS</div><h2>From first ring to production outcome.</h2></div><p class="section-intro">Two examples of the system-level thinking behind a Vokero deployment.</p></div><div class="blueprints"><article class="blueprint"><div class="mono">BLUEPRINT 01 / FIELD SERVICES</div><h3>High-Volume Moving &amp; Home Services Intake</h3><div class="flow"><span class="node">INBOUND CALL</span><span class="arrow">→</span><span class="node">VOICE RECEPTIONIST</span><span class="arrow">→</span><span class="node">ZIP VALIDATION</span><span class="arrow">→</span><span class="node">GHL CALENDAR</span><span class="arrow">→</span><span class="node">BOOK + SMS</span></div><p class="outcome">Eliminates missed after-hours calls and turns raw phone rings into booked calendar jobs without dispatcher intervention.</p></article><article class="blueprint"><div class="mono">BLUEPRINT 02 / STAFFING INFRASTRUCTURE</div><h3>Autonomous Applicant Voice Screener</h3><div class="flow"><span class="node">ATS APPLICATION</span><span class="arrow">→</span><span class="node">OUTBOUND INTERVIEW</span><span class="arrow">→</span><span class="node">SCORE</span><span class="arrow">→</span><span class="node">ATS SYNC</span></div><p class="outcome">Screens hundreds of applicants within minutes and syncs structured interview summaries directly into the recruiting database.</p></article></div></div></section>
+<section class="section" id="reliability"><div class="shell"><div class="section-head"><div><div class="mono label">03 // THE ENGINEERING STANDARD</div><h2>Reliability is part of the feature set.</h2></div></div><div class="matrix"><div class="matrix-row"><div class="matrix-head">TYPICAL NO-CODE FREELANCER / GENERIC AGENCY</div><div class="matrix-head">VOKERO PRODUCTION ARCHITECTURE</div></div><div class="matrix-row"><div class="bad">Brittle single-step zaps</div><div class="good">Queue-backed webhooks with idempotency</div></div><div class="matrix-row"><div class="bad">Silent webhook failures</div><div class="good">Dead-letter queues and explicit retry paths</div></div><div class="matrix-row"><div class="bad">High-latency robotic voice prompts</div><div class="good">Sub-500ms conversational turn latency</div></div><div class="matrix-row"><div class="bad">Zero error logging or ownership</div><div class="good">Custom API middleware and lead architect accountability</div></div></div></div></section>
+<section class="section"><div class="shell"><div class="terminal"><div><div class="mono label">04 // DIRECT FOUNDER ENGAGEMENT</div><h2>Deploy your first voice or workflow pipeline in 14 days.</h2><p>Every system is architected directly—no junior handoffs, no bloated retainers. Send a brief overview of your current intake bottleneck or CRM stack.</p></div><div class="email-box"><a href="mailto:swastik@vokerohq.com">swastik@vokerohq.com</a><a href="mailto:hello@vokerohq.com">hello@vokerohq.com</a><button class="copy" id="copy">COPY PRIMARY EMAIL</button><div class="toast" id="toast"></div></div></div></div></section>
+</main><footer><div class="shell footer"><span>VOKERO HQ · ALL SYSTEMS OPERATIONAL · © 2026</span><span class="mono">ENGINEERED FOR HIGH-VOLUME TEAMS</span></div></footer>
+<script>
+const consoleEl=document.getElementById('console');
+document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');const telemetry=consoleEl.querySelector('.telemetry');const payload=consoleEl.querySelector('.payload');const isPayload=tab.dataset.tab==='payload';telemetry.style.display=isPayload?'none':'block';payload.style.display=isPayload?'block':'none'}));
+let scenarioB=false;document.getElementById('scenario').addEventListener('click',()=>{scenarioB=!scenarioB;consoleEl.classList.toggle('scenario-b',scenarioB);document.getElementById('scenario').innerHTML=scenarioB?'↻ SCENARIO B: STAFFING &amp; APPLICANT VOICE SCREENING':'↻ SCENARIO A: MOVING &amp; FIELD SERVICE DISPATCH'});
+document.getElementById('copy').addEventListener('click',async()=>{await navigator.clipboard.writeText('swastik@vokerohq.com');document.getElementById('toast').textContent='[COPIED TO CLIPBOARD]';setTimeout(()=>document.getElementById('toast').textContent='',2500)});
+</script></body></html>
