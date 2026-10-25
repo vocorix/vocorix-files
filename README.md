@@ -1,14 +1,16 @@
-# Vokero website
+# Vocorix website
 
-Static multi-page marketing site for Vokero.
+Premium multi-page marketing site for Vocorix, focused on voice AI, workflow orchestration, and system integrations.
 
 ## Pages and shared assets
-- `index.html` — homepage
-- `services.html` — services
-- `process.html` — delivery process
-- `contact.html` — contact
-- `style.css` — shared visual design
-- `app.js` — shared navigation, CTAs, and optional Three.js hero animation
+- `index.html` — homepage and open-core 3D hero
+- `services.html` — capabilities and use cases
+- `process.html` — delivery approach
+- `contact.html` — contact and next steps
+- `style.css` — shared visual system and responsive layouts
+- `app.js` — shared navigation, CTA handling, reduced-motion-aware reveals, and Three.js open-core animation
+- `public/favicon.svg` — browser favicon
+- `public/brand/` — logo variations
 
 ## Local development
 ```bash
@@ -21,7 +23,10 @@ npm run dev
 npm run build
 ```
 
-Vite is configured to build all four HTML pages into `dist/`. In Vercel, use the Vite framework preset, `npm run build` as the build command, and `dist` as the output directory.
+Vite builds the four HTML pages into `dist/`. Use `npm run build` as the build command and `dist` as the output directory.
 
 ## Before launch
-Update the placeholder Cal.com URL and LinkedIn/X/Instagram URLs in `app.js`. Verify that the demo phone number, email address, customer claims, and performance metrics are accurate before publishing.
+- Confirm the demo phone number is correct and approved for public use.
+- Replace the temporary email-based booking fallback with a dedicated scheduling URL when available.
+- Confirm whether `swastik@vokerohq.com` will remain the public contact address or be replaced by a Vocorix-domain mailbox.
+- Add official company social URLs if/when they exist. Unsupported customer metrics are not displayed in the current copy.
