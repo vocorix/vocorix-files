@@ -49,3 +49,14 @@ a[href^="tel:"],a[href^="mailto:"]{overflow-wrap:anywhere}
   .nav .btn{margin-top:9px}
   .contact-form{padding:21px}
 }
+
+/* Contact layout: keep the form beside the contact details on wide screens. */
+@media(min-width:741px){
+  .contact{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:38px;row-gap:22px}
+  .contact-links{grid-column:1;grid-row:1}
+  .contact-aside{grid-column:1;grid-row:2}
+  .contact-form{grid-column:2;grid-row:1 / span 2}
+}
+@media(max-width:740px){
+  .contact-form,.contact-aside{grid-column:auto;grid-row:auto}
+}
