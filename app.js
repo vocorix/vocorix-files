@@ -11,11 +11,11 @@ const generalMail = "mailto:" + CONFIG.email +
   "?subject=" + encodeURIComponent("Hello Vocorix") +
   "&body=" + encodeURIComponent("Hi Vocorix,\n\nI'd like to learn more about your services.\n\nThanks,");
 
-const pages = [["index.html","Overview"],["services.html","Capabilities"],["process.html","Approach"],["contact.html","Contact"]];
+const pages = [["index.html","Home"],["services.html","Capabilities"],["process.html","Approach"],["contact.html","Contact"]];
 const here = location.pathname.split("/").filter(Boolean).pop() || "index.html";
 document.getElementById("site-header").innerHTML =
   '<div class="wrap bar"><a class="logo" href="index.html" aria-label="Vocorix home">' +
-  '<img class="brand-logo" src="/brand/vocorix-logo-light.svg" alt="Vocorix"></a><nav class="nav" id="primary-nav" aria-label="Main navigation">' +
+  '<img class="brand-logo" src="/brand/vocorix-logo.svg" alt="Vocorix"></a><nav class="nav" id="primary-nav" aria-label="Main navigation">' +
   pages.map(function(item) {
     return '<a href="' + item[0] + '"' + (item[0] === here ? ' aria-current="page"' : '') + '>' + item[1] + '</a>';
   }).join("") +
