@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="112" height="112" viewBox="0 0 112 112" role="img" aria-labelledby="title desc">
-<title id="title">Vocorix route mark light</title><desc id="desc">A branching route forming a V, with a coral endpoint. It represents conversations moving into clear next steps.</desc>
-<path d="M22 23 L49 55 Q56 63 63 55 L90 23" fill="none" stroke="#F6F2EB" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M56 60 V81" fill="none" stroke="#F6F2EB" stroke-width="10" stroke-linecap="round"/>
-<path d="M56 81 H78" fill="none" stroke="#F6F2EB" stroke-width="10" stroke-linecap="round"/>
-<circle cx="88" cy="81" r="7" fill="#F06445"/>
+<title id="title">Vocorix V monogram light</title>
+<desc id="desc">A sculptural V formed by dark ribbon-like blades with a flowing coral fold and a coral signal dot.</desc>
+<defs><linearGradient id="coral" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F5A28F"/><stop offset=".58" stop-color="#F06445"/><stop offset="1" stop-color="#D95135"/></linearGradient></defs>
+<path d="M16 18 C25 17 35 18 42 24 C48 30 50 40 51 48 L56 78 C58 89 63 95 69 98 C75 86 82 71 85 56 C88 42 94 29 104 22 C92 30 81 44 74 58 C67 73 60 81 54 77 C48 73 44 60 40 46 C35 30 29 22 16 18 Z" fill="#F6F2EB"/>
+<path d="M43 25 C48 35 50 48 54 60 C58 71 63 76 69 72 C76 66 82 57 88 50 C80 63 74 77 69 98 C57 93 51 84 50 70 C49 55 48 38 43 25 Z" fill="url(#coral)"/>
+<circle cx="96" cy="25" r="7" fill="url(#coral)"/>
 </svg>
