@@ -28,5 +28,5 @@ Vite builds the four HTML pages into `dist/`. Use `npm run build` as the build c
 ## Before launch
 - Confirm the demo phone number is correct and approved for public use.
 - Replace the temporary email-based booking fallback with a dedicated scheduling URL when available.
-- Confirm whether `swastik@vokerohq.com` will remain the public contact address or be replaced by a Vocorix-domain mailbox.
+- Public contact email is `swastik@vocorix.com`; confirm the mailbox is provisioned with your email provider before launch.
 - Add official company social URLs if/when they exist. Unsupported customer metrics are not displayed in the current copy.
