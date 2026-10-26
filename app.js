@@ -3,96 +3,62 @@ const CONFIG = {
   phone: "+17073406743",
   phoneText: "+1 (707) 340-6743"
 };
-const DRAFT_COUNTER_KEY = "vocorix-email-draft-clicks";
-let fallbackDraftClicks = 0;
 
-const generalDrafts = [
-  { subject: "Question about an AI voice agent for inbound calls", body: "Hi Swastik,\n\nI'm exploring whether a voice agent could answer common inbound questions, capture caller details, and hand off anything that needs a person. How would you scope a useful first version?\n\nThanks," },
-  { subject: "Exploring voice AI for lead qualification", body: "Hi Swastik,\n\nWe're looking at ways to qualify new enquiries before they reach our team. Could a voice agent ask a few tailored questions and pass a useful summary to a human?\n\nBest," },
-  { subject: "Could workflow automation reduce our manual follow-up?", body: "Hi Swastik,\n\nSome of our follow-up work still involves copying information between tools and reminding people about next steps. How would you identify which parts are worth automating first?\n\nThanks," },
-  { subject: "Question about connecting voice agents to a CRM", body: "Hi Swastik,\n\nI'm interested in a voice agent that can capture a conversation outcome and update our CRM. Which integrations are usually possible, and how do you keep the information accurate?\n\nBest regards," },
-  { subject: "Looking into an after-hours call assistant", body: "Hi Swastik,\n\nCould a voice assistant handle calls outside our team's working hours, answer basic questions, and route urgent matters appropriately? What would you recommend for a first iteration?\n\nThank you," },
-  { subject: "Enquiry about automating appointment requests", body: "Hi Swastik,\n\nWe're considering a voice agent or automated workflow to handle appointment requests and coordinate with our calendar. How would you approach availability checks, confirmations, and handoffs?\n\nThanks," },
-  { subject: "Question about AI voice follow-up for missed enquiries", body: "Hi Swastik,\n\nI'm curious whether voice AI could help us follow up with people who enquire but don't get reached in time. How might you handle retries, call summaries, and human handoff?\n\nRegards," },
-  { subject: "Exploring voice automation for customer service", body: "Hi Swastik,\n\nI'd like to explore where a voice agent could help with repetitive customer questions without making the experience frustrating. How do you design escalation paths so callers can reach a person?\n\nThanks," },
-  { subject: "Can automation keep our customer information in sync?", body: "Hi Swastik,\n\nWe use a few tools to manage enquiries, schedules, and internal follow-up. I'm interested in connecting them so information moves between systems with fewer manual steps. How would you assess the options?\n\nBest," },
-  { subject: "Question about a small proof of concept for voice AI", body: "Hi Swastik,\n\nBefore committing to a larger build, we'd like to understand whether a small voice AI proof of concept makes sense. What would you need to assess feasibility, integrations, and success measures?\n\nThanks," },
-  { subject: "Looking for advice on automating lead routing", body: "Hi Swastik,\n\nWe'd like enquiries to reach the right person based on intent, urgency, or location. Would you recommend a voice agent, workflow automation, or a combination?\n\nBest regards," },
-  { subject: "Question about safe handoffs from an AI voice agent", body: "Hi Swastik,\n\nI'm researching how voice agents handle ambiguous questions and exceptions. How do you decide when automation should stop and a person should take over?\n\nThank you," }
-];
+const projectMail = "mailto:" + CONFIG.email +
+  "?subject=" + encodeURIComponent("Let's talk about a workflow") +
+  "&body=" + encodeURIComponent("Hi Vocorix,\n\nI'd like to talk about a workflow we could improve.\n\nWhat we do:\n\nWhat is taking too much time:\n\nTools we use:\n\nThanks,");
+const generalMail = "mailto:" + CONFIG.email +
+  "?subject=" + encodeURIComponent("Hello Vocorix") +
+  "&body=" + encodeURIComponent("Hi Vocorix,\n\nI'd like to learn more about your services.\n\nThanks,");
 
-const projectDrafts = [
-  { subject: "Discussing a voice agent for our enquiry workflow", body: "Hi Swastik,\n\nI'd like to discuss a potential voice agent for our enquiry workflow. The idea is to capture the caller's needs, qualify the request, and route it to the right person with context. What would you want to learn before suggesting a scope?\n\nThanks," },
-  { subject: "Project question: voice AI with human transfer", body: "Hi Swastik,\n\nWe're considering a voice AI project, but callers must be able to reach a human for complex or urgent cases. Could we discuss the conversation design, transfer rules, and fallback behaviour?\n\nBest," },
-  { subject: "Project enquiry about workflow automation and CRM updates", body: "Hi Swastik,\n\nI'd like to explore a workflow that takes new enquiries through CRM updates, notifications, and follow-up tasks. Could you advise on discovery and a manageable first phase?\n\nThanks," },
-  { subject: "Scoping a voice agent for appointment scheduling", body: "Hi Swastik,\n\nWe're interested in whether a voice agent could handle appointment requests while checking availability and recording the outcome in our tools. What decisions and integrations would need to be settled first?\n\nRegards," },
-  { subject: "Could we discuss an AI caller for lead follow-up?", body: "Hi Swastik,\n\nI'd like to discuss an outbound follow-up workflow that contacts new leads, asks relevant questions, and escalates interested prospects to our team. What would make this reliable and useful?\n\nBest regards," },
-  { subject: "Project idea: connecting calls, calendars, and internal tools", body: "Hi Swastik,\n\nOur process spans calls, calendar events, and internal notifications. Could you help us assess whether voice AI, workflow automation, or a simpler integration would fit best?\n\nThanks," },
-  { subject: "Looking to scope an AI receptionist for our team", body: "Hi Swastik,\n\nWe're evaluating an AI receptionist for common questions and enquiry capture. We'd want it to follow our process rather than act as a generic bot. How would you scope a practical first release?\n\nThank you," },
-  { subject: "Discussing a first automation project", body: "Hi Swastik,\n\nThere's a repetitive process involving moving data between systems and chasing the next action. I'd like to discuss how you'd define the automation boundary, handle failed steps, and measure improvement.\n\nBest," },
-  { subject: "Project question about voice AI for real-estate enquiries", body: "Hi Swastik,\n\nWe're exploring a voice workflow for property enquiries that gathers buyer requirements, captures urgency, and arranges human follow-up. How would you approach structured questions and warm transfers?\n\nRegards," },
-  { subject: "Could we review our call-to-CRM workflow?", body: "Hi Swastik,\n\nI'd like to discuss connecting call outcomes to our CRM and follow-up process. We'd value accurate notes, clear ownership, and fewer missed next steps. What would you need to estimate the work?\n\nThanks," },
-  { subject: "Project enquiry: reliable automation with exception handling", body: "Hi Swastik,\n\nWe're considering a multi-step workflow that needs clear behaviour when data is missing or an integration fails. Could we discuss retries, alerts, and when a person should take over?\n\nBest regards," },
-  { subject: "Exploring a voice AI pilot for customer enquiries", body: "Hi Swastik,\n\nI'd like to explore a focused pilot for customer enquiries with voice AI. We want a practical scope and clear outcomes before expanding. What should the pilot test and what would you need from us?\n\nThank you," }
-];
-
-function mailtoFor(draft) {
-  return "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent(draft.subject) + "&body=" + encodeURIComponent(draft.body);
-}
-
-function nextEmailDraft(intent) {
-  const pool = intent === "project" ? projectDrafts : generalDrafts;
-  let count = 0;
-  try {
-    const stored = Number(window.sessionStorage.getItem(DRAFT_COUNTER_KEY) || "0");
-    count = Number.isSafeInteger(stored) && stored >= 0 ? stored : 0;
-    window.sessionStorage.setItem(DRAFT_COUNTER_KEY, String(count + 1));
-  } catch (error) {
-    // Keep drafts rotating even when browser storage is disabled.
-    count = Date.now() + fallbackDraftClicks++;
-  }
-  return pool[count % pool.length];
-}
-
-function bindEmailDraftLink(anchor, intent) {
-  const pool = intent === "project" ? projectDrafts : generalDrafts;
-  // A usable mailto remains in the markup even if this module cannot run.
-  anchor.href = mailtoFor(pool[0]);
-  anchor.addEventListener("click", function(event) {
-    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
-    window.location.href = mailtoFor(nextEmailDraft(intent));
-  });
-}
 const pages = [["index.html","Overview"],["services.html","Capabilities"],["process.html","Approach"],["contact.html","Contact"]];
 const here = location.pathname.split("/").filter(Boolean).pop() || "index.html";
-function openCore(cls) {
-  return '<svg class="' + cls + '" viewBox="0 0 112 112" aria-hidden="true" focusable="false"><path d="M81.46 30.54 A36 36 0 1 0 92 56" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/><path d="M88 56H100" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/><circle cx="104" cy="56" r="5.2" fill="#F06445"/></svg>';
-}
 document.getElementById("site-header").innerHTML =
   '<div class="wrap bar"><a class="logo" href="index.html" aria-label="Vocorix home">' +
-  openCore("brand-mark") + '<span class="logo-word">VOCORIX</span></a><nav class="nav" aria-label="Main navigation">' +
+  '<img class="brand-logo" src="/brand/vocorix-logo-light.svg" alt="Vocorix"></a><nav class="nav" id="primary-nav" aria-label="Main navigation">' +
   pages.map(function(item) {
     return '<a href="' + item[0] + '"' + (item[0] === here ? ' aria-current="page"' : '') + '>' + item[1] + '</a>';
   }).join("") +
-  '<a class="btn dark sm" data-book href="' + mailtoFor(projectDrafts[0]) + '">Discuss a project <span class="arrow">↗</span></a></nav></div>';
+  '<a class="btn dark sm" data-book href="' + projectMail + '">Discuss a project <span class="arrow" aria-hidden="true">→</span></a></nav><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button></div>';
 document.getElementById("site-footer").innerHTML =
   '<div class="wrap"><div class="footer-main"><a class="footer-brand" href="index.html">' +
-  openCore("footer-mark") + '<span>VOCORIX</span></a><div class="footer-links"><a href="services.html">Capabilities</a>' +
+  '<img class="footer-logo" src="/brand/vocorix-logo-light.svg" alt="Vocorix"></a><div class="footer-links"><a href="services.html">Capabilities</a>' +
   '<a href="process.html">Our approach</a><a href="contact.html">Contact</a></div></div><div class="footer-bottom"><span>© ' +
-  new Date().getFullYear() + ' Vocorix. Built around your workflow.</span><a data-mail-draft href="' + mailtoFor(generalDrafts[0]) + '">' +
+  new Date().getFullYear() + ' Vocorix. Built around your workflow.</span><a data-mail-draft href="' + generalMail + '">' +
   CONFIG.email + '</a></div></div>';
 document.querySelectorAll("[data-phone]").forEach(function(a) {
   a.href = "tel:" + CONFIG.phone;
   if (a.dataset.phone === "text") a.textContent = CONFIG.phoneText;
 });
 document.querySelectorAll("[data-mail]").forEach(function(a) {
-  var text = a.querySelector("span span");
-  if (text) text.textContent = CONFIG.email;
+  a.href = generalMail;
 });
-document.querySelectorAll('[data-book], [data-mail], [data-mail-draft], a[href^="mailto:"]').forEach(function(a) {
-  bindEmailDraftLink(a, a.hasAttribute("data-book") ? "project" : "general");
+document.querySelectorAll("[data-book]").forEach(function(a) {
+  a.href = projectMail;
 });
+document.querySelectorAll("[data-mail-draft]").forEach(function(a) {
+  a.href = generalMail;
+});
+
+// Mobile navigation opens and closes with a button.
+(function() {
+  var toggle = document.querySelector(".menu-toggle");
+  var nav = document.getElementById("primary-nav");
+  if (!toggle || !nav) return;
+  toggle.addEventListener("click", function() {
+    var isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+    nav.classList.toggle("is-open", !isOpen);
+  });
+  nav.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", function() {
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open navigation");
+      nav.classList.remove("is-open");
+    });
+  });
+})();
 // Progressive reveal. Content remains visible when reduced motion is requested or IntersectionObserver is unavailable.
 (function() {
   var els = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
@@ -127,7 +93,7 @@ document.querySelectorAll('[data-book], [data-mail], [data-mail-draft], a[href^=
   renderer.outputEncoding = THREE.sRGBEncoding;
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
-  camera.position.set(0, 0, 7.2);
+  camera.position.set(0, 0, 7.8);
   var core = new THREE.Group();
   scene.add(core);
   var startAngle = Math.PI * 0.25;
@@ -156,21 +122,11 @@ document.querySelectorAll('[data-book], [data-mail], [data-mail-draft], a[href^=
     core.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 60, radius, 8, false), material));
     return curve;
   }
-  addTube([
-    new THREE.Vector3(1.20, 1.22, 0.02),
-    new THREE.Vector3(1.62, 1.52, 0.04),
-    new THREE.Vector3(2.12, 1.52, 0.04)
-  ], 0.018, new THREE.MeshBasicMaterial({ color: 0xF06445, transparent: true, opacity: 0.82 }));
-  addTube([
-    new THREE.Vector3(1.20, -1.22, 0),
-    new THREE.Vector3(1.62, -1.50, 0.05),
-    new THREE.Vector3(2.10, -1.50, 0.05)
-  ], 0.014, new THREE.MeshBasicMaterial({ color: 0xF6F2EB, transparent: true, opacity: 0.45 }));
   var node = new THREE.Mesh(new THREE.SphereGeometry(0.075, 20, 20), new THREE.MeshStandardMaterial({ color: 0xF06445, metalness: 0.25, roughness: 0.3 }));
-  node.position.set(2.12, 1.52, 0.04);
+  node.position.set(1.55, 0.64, 0.04);
   core.add(node);
   var node2 = new THREE.Mesh(new THREE.SphereGeometry(0.048, 16, 16), new THREE.MeshBasicMaterial({ color: 0xF6F2EB }));
-  node2.position.set(2.10, -1.50, 0.05);
+  node2.position.set(1.55, -0.64, 0.05);
   core.add(node2);
   var pulse = new THREE.Mesh(new THREE.SphereGeometry(0.05, 18, 18), new THREE.MeshBasicMaterial({ color: 0xF06445 }));
   core.add(pulse);
