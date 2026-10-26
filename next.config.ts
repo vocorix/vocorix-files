@@ -1,0 +1,26 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  poweredByHeader: false,
+  reactStrictMode: true,
+  async redirects() {
+    return [
+      { source: "/services.html", destination: "/services", permanent: true },
+      { source: "/process.html", destination: "/process", permanent: true },
+      { source: "/contact.html", destination: "/contact", permanent: true }
+    ];
+  },
+  async headers() {
+    return [{
+      source: "/:path*",
+      headers: [
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        { key: "X-Frame-Options", value: "DENY" },
+        { key: "Permissions-Policy", value: "camera=(), geolocation=()" }
+      ]
+    }];
+  }
+};
+
+export default nextConfig;
