@@ -117,6 +117,7 @@ document.querySelectorAll("[data-mail-draft]").forEach(function(a) {
     new THREE.TubeGeometry(new THREE.CatmullRomCurve3(innerPoints, false, "centripetal"), 200, 0.008, 6, false),
     new THREE.MeshBasicMaterial({ color: 0xF06445, transparent: true, opacity: 0.52 })
   ));
+  // Keep the signal inside the open-core mark instead of sending stray lines beyond it.
   function addTube(pathPoints, radius, material) {
     var curve = new THREE.CatmullRomCurve3(pathPoints, false, "centripetal");
     core.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 60, radius, 8, false), material));
