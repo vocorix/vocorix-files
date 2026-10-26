@@ -1,9 +1,9 @@
 const CONFIG = {
-  email: "swastik@vokerohq.com",
+  email: "swastik@vocorix.com",
   phone: "+17073406743",
   phoneText: "+1 (707) 340-6743",
   // Until the dedicated booking URL is added, this CTA opens an email instead of a dead placeholder.
-  book: "mailto:swastik@vokerohq.com?subject=Vocorix%20workflow%20consultation"
+  book: "mailto:swastik@vocorix.com?subject=Vocorix%20workflow%20consultation"
 };
 const pages = [["index.html","Overview"],["services.html","Capabilities"],["process.html","Approach"],["contact.html","Contact"]];
 const here = location.pathname.split("/").filter(Boolean).pop() || "index.html";
