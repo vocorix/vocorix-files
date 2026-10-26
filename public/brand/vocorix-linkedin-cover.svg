@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1128" height="191" viewBox="0 0 1128 191" role="img" aria-labelledby="title desc">
 <title id="title">Vocorix LinkedIn company cover</title><desc id="desc">Vocorix. Conversations routed to a clear next step.</desc>
 <rect width="1128" height="191" fill="#14171B"/>
-<g fill="none" stroke="#F6F2EB" stroke-opacity=".08" stroke-width="1.5"><path d="M720 0V191M770 0V191M820 0V191M870 0V191M920 0V191M970 0V191M1020 0V191M1070 0V191"/><path d="M650 36H1128M650 76H1128M650 116H1128M650 156H1128"/></g>
-<rect x="55" y="36" width="27" height="3" rx="1.5" fill="#F06445"/>
-<text x="55" y="27" fill="#F06445" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.1">VOICE AI · WORKFLOW AUTOMATION</text>
-<text x="55" y="83" fill="#F6F2EB" font-family="Manrope,Arial,sans-serif" font-size="32" font-weight="800" letter-spacing="1.6">VOCORIX</text>
-<text x="55" y="120" fill="#F6F2EB" font-family="Manrope,Arial,sans-serif" font-size="20" font-weight="600">Conversations, routed to a next step.</text>
-<text x="55" y="150" fill="#B9BDC0" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="500">Voice experiences. Workflow design. Systems that stay in sync.</text>
+<g fill="none" stroke="#F5EFE5" stroke-opacity=".08" stroke-width="1.5"><path d="M720 0V191M770 0V191M820 0V191M870 0V191M920 0V191M970 0V191M1020 0V191M1070 0V191"/><path d="M650 36H1128M650 76H1128M650 116H1128M650 156H1128"/></g>
+<rect x="55" y="36" width="27" height="3" rx="1.5" fill="#E95E3F"/>
+<text x="55" y="27" fill="#E95E3F" font-family="DM Sans,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.1">VOICE AI · WORKFLOW AUTOMATION</text>
+<text x="55" y="83" fill="#F5EFE5" font-family="Playfair Display,Georgia,serif" font-size="32" font-weight="600" letter-spacing="1">VOCORIX</text>
+<text x="55" y="120" fill="#F5EFE5" font-family="Playfair Display,Georgia,serif" font-size="20" font-weight="600">Conversations, routed to a next step.</text>
+<text x="55" y="150" fill="#A6A49F" font-family="DM Sans,Arial,sans-serif" font-size="12" font-weight="500">Voice experiences. Workflow design. Systems that stay in sync.</text>
 <g transform="translate(858 21) scale(1.45)">
-<path d="M22 23 L49 55 Q56 63 63 55 L90 23" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M56 60 V81" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round"/>
-<path d="M56 81 H78" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round"/>
-<circle cx="88" cy="81" r="5.5" fill="#F06445"/>
+<path d="M22 23 L49 55 Q56 63 63 55 L90 23" fill="none" stroke="#F5EFE5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M56 60 V81" fill="none" stroke="#F5EFE5" stroke-width="7" stroke-linecap="round"/>
+<path d="M56 81 H78" fill="none" stroke="#F5EFE5" stroke-width="7" stroke-linecap="round"/>
+<circle cx="88" cy="81" r="5.5" fill="#E95E3F"/>
 </g>
-<path d="M55 171H225" stroke="#F06445" stroke-width="2" stroke-linecap="round"/>
+<path d="M55 171H225" stroke="#E95E3F" stroke-width="2" stroke-linecap="round"/>
 </svg>
