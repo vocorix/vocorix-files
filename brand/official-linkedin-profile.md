@@ -13,6 +13,8 @@ Vocorix builds practical voice AI and workflow automation around how teams workâ
 - Brand mark: public/brand/vocorix-mark.svg
 - Light brand mark: public/brand/vocorix-mark-light.svg
 - Favicon: public/favicon.svg
+- LinkedIn profile avatar: public/brand/vocorix-linkedin-avatar.svg
+- LinkedIn company cover: public/brand/vocorix-linkedin-cover.svg
 
 ## LinkedIn company page copy
 
