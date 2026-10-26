@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import EmailPromptLink from "@/components/email-prompt-link";
 
 export const metadata: Metadata = {
   title: "Capabilities",
@@ -22,6 +23,6 @@ export default function ServicesPage() {
       <article className="capability reveal"><span className="cap-number">ORCHESTRATION</span><h3>Move the work</h3><p>Translate call outcomes into routing, scheduling, updates, alerts, and other concrete next steps.</p></article>
       <article className="capability reveal"><span className="cap-number">CONTROL</span><h3>Know when to stop</h3><p>Define fallback behaviour, human handoffs, and rules for cases the agent should not handle alone.</p></article>
     </div></div></section>
-    <div className="cta"><div className="wrap"><p className="section-kicker">Find the useful first step</p><h2>Start with one process, not a giant rebuild.</h2><p>We’ll help assess where automation is likely to pay off and where a human-led process is still the better choice.</p><div className="actions"><Link className="btn primary" href="/contact">Discuss a project <span className="arrow">↗</span></Link></div></div></div>
+    <div className="cta"><div className="wrap"><p className="section-kicker">Find the useful first step</p><h2>Start with one process, not a giant rebuild.</h2><p>We’ll help assess where automation is likely to pay off and where a human-led process is still the better choice.</p><div className="actions"><EmailPromptLink className="btn primary" intent="project">Discuss a project <span className="arrow">↗</span></EmailPromptLink></div></div></div>
   </main>;
 }
