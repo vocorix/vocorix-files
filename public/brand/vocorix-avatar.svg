@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+<title id="title">Vocorix social avatar</title><desc id="desc">Vocorix sculptural V monogram, paper and coral on midnight ink.</desc>
+<rect width="800" height="800" rx="180" fill="#14171B"/>
+<g transform="translate(160 134) scale(4.35)">
+<path d="M16 18 C25 17 35 18 42 24 C48 30 50 40 51 48 L56 78 C58 89 63 95 69 98 C75 86 82 71 85 56 C88 42 94 29 104 22 C92 30 81 44 74 58 C67 73 60 81 54 77 C48 73 44 60 40 46 C35 30 29 22 16 18 Z" fill="#F6F2EB"/>
+<path d="M43 25 C48 35 50 48 54 60 C58 71 63 76 69 72 C76 66 82 57 88 50 C80 63 74 77 69 98 C57 93 51 84 50 70 C49 55 48 38 43 25 Z" fill="#F06445"/>
+<circle cx="96" cy="25" r="7" fill="#F06445"/></g></svg>
