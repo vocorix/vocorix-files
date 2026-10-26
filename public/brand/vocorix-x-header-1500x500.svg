@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500" role="img" aria-labelledby="title desc">
 <title id="title">Vocorix X profile header</title><desc id="desc">Minimal Vocorix voice AI and workflow automation banner.</desc>
 <rect width="1500" height="500" fill="#14171B"/>
-<g opacity=".1" fill="none" stroke="#F6F2EB" stroke-width="2"><path d="M850 0V500M925 0V500M1000 0V500M1075 0V500M1150 0V500M1225 0V500M1300 0V500M1375 0V500M1450 0V500"/><path d="M780 80H1500M780 180H1500M780 280H1500M780 380H1500"/></g>
-<rect x="104" y="91" width="52" height="6" rx="3" fill="#F06445"/><text x="104" y="76" fill="#F06445" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="4">VOICE AI · WORKFLOW AUTOMATION</text>
-<text x="104" y="207" fill="#F6F2EB" font-family="Manrope,Arial,sans-serif" font-size="78" font-weight="800" letter-spacing="5">VOCORIX</text>
-<text x="104" y="280" fill="#F6F2EB" font-family="Manrope,Arial,sans-serif" font-size="38" font-weight="600">Conversations, routed to a next step.</text>
-<path d="M104 340H310" stroke="#F06445" stroke-width="4" stroke-linecap="round"/>
-<g transform="translate(1090 76) scale(3.1)"><path d="M22 23 L49 55 Q56 63 63 55 L90 23" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 60 V81" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round"/><path d="M56 81 H78" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round"/><circle cx="88" cy="81" r="5.5" fill="#F06445"/></g>
+<g opacity=".1" fill="none" stroke="#F5EFE5" stroke-width="2"><path d="M850 0V500M925 0V500M1000 0V500M1075 0V500M1150 0V500M1225 0V500M1300 0V500M1375 0V500M1450 0V500"/><path d="M780 80H1500M780 180H1500M780 280H1500M780 380H1500"/></g>
+<rect x="104" y="91" width="52" height="6" rx="3" fill="#E95E3F"/><text x="104" y="76" fill="#E95E3F" font-family="DM Sans,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="4">VOICE AI · WORKFLOW AUTOMATION</text>
+<text x="104" y="207" fill="#F5EFE5" font-family="Playfair Display,Georgia,serif" font-size="78" font-weight="600" letter-spacing="1.6">VOCORIX</text>
+<text x="104" y="280" fill="#F5EFE5" font-family="Playfair Display,Georgia,serif" font-size="38" font-weight="600">Conversations, routed to a next step.</text>
+<path d="M104 340H310" stroke="#E95E3F" stroke-width="4" stroke-linecap="round"/>
+<g transform="translate(1090 76) scale(3.1)"><path d="M22 23 L49 55 Q56 63 63 55 L90 23" fill="none" stroke="#F5EFE5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 60 V81" fill="none" stroke="#F5EFE5" stroke-width="7" stroke-linecap="round"/><path d="M56 81 H78" fill="none" stroke="#F5EFE5" stroke-width="7" stroke-linecap="round"/><circle cx="88" cy="81" r="5.5" fill="#E95E3F"/></g>
 </svg>
