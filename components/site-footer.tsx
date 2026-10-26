@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BrandMark from "@/components/brand-mark";
+import EmailPromptLink from "@/components/email-prompt-link";
 
 export default function SiteFooter() {
   return (
@@ -13,7 +14,7 @@ export default function SiteFooter() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Vocorix. Built around your workflow.</span>
-          <a href="mailto:swastik@vocorix.com">swastik@vocorix.com</a>
+          <EmailPromptLink>swastik@vocorix.com</EmailPromptLink>
         </div>
       </div>
     </footer>
