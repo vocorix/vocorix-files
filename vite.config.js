@@ -10,6 +10,7 @@ export default defineConfig({
         process: resolve(__dirname, 'process.html'),
         contact: resolve(__dirname, 'contact.html'),
         linkedin: resolve(__dirname, 'linkedin.html'),
+        dashboard: resolve(__dirname, 'dashboard.html'),
       },
     },
   },
