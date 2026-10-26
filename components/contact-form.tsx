@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import EmailPromptLink from "@/components/email-prompt-link";
 
 const emptyForm = { name: "", email: "", company: "", interest: "voice-ai", message: "", website: "" };
 type FormValues = typeof emptyForm;
@@ -48,7 +49,7 @@ export default function ContactForm() {
     <button className="btn primary submit-button" type="submit" disabled={pending}>{pending ? "Sending enquiry…" : "Send enquiry"} <span className="arrow">↗</span></button>
     <p className="form-privacy">Your details are used to respond to this enquiry. They are not published.</p>
     <div className={"form-status" + (status ? " " + status.kind : "")} role="status" aria-live="polite">
-      {status ? <>{status.message}{status.kind === "error" ? <> You can also email <a href="mailto:swastik@vocorix.com">swastik@vocorix.com</a>.</> : null}</> : null}
+      {status ? <>{status.message}{status.kind === "error" ? <> You can also email <EmailPromptLink>swastik@vocorix.com</EmailPromptLink>.</> : null}</> : null}
     </div>
   </form>;
 }
