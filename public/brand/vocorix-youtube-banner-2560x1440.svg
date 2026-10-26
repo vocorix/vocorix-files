@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-labelledby="title desc">
 <title id="title">Vocorix YouTube channel banner</title><desc id="desc">Vocorix voice AI and workflow automation brand cover.</desc>
 <rect width="2560" height="1440" fill="#14171B"/>
-<g opacity=".08" fill="none" stroke="#F6F2EB" stroke-width="3"><path d="M1500 0V1440M1620 0V1440M1740 0V1440M1860 0V1440M1980 0V1440M2100 0V1440M2220 0V1440M2340 0V1440M2460 0V1440"/><path d="M1440 180H2560M1440 420H2560M1440 660H2560M1440 900H2560M1440 1140H2560"/></g>
-<rect x="300" y="390" width="66" height="8" rx="4" fill="#F06445"/>
-<text x="300" y="360" fill="#F06445" font-family="Inter,Arial,sans-serif" font-size="27" font-weight="700" letter-spacing="6">VOICE AI · WORKFLOW AUTOMATION</text>
-<text x="300" y="590" fill="#F6F2EB" font-family="Manrope,Arial,sans-serif" font-size="120" font-weight="800" letter-spacing="8">VOCORIX</text>
-<text x="300" y="700" fill="#F6F2EB" font-family="Manrope,Arial,sans-serif" font-size="56" font-weight="600">Conversations, routed to a next step.</text>
-<text x="300" y="780" fill="#B9BDC0" font-family="Inter,Arial,sans-serif" font-size="32" font-weight="500">Voice experiences. Workflow design. Systems that stay in sync.</text>
-<path d="M300 860H580" stroke="#F06445" stroke-width="6" stroke-linecap="round"/>
-<g transform="translate(1840 420) scale(4.8)"><path d="M22 23 L49 55 Q56 63 63 55 L90 23" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 60 V81" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round"/><path d="M56 81 H78" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round"/><circle cx="88" cy="81" r="5.5" fill="#F06445"/></g>
+<g opacity=".08" fill="none" stroke="#F5EFE5" stroke-width="3"><path d="M1500 0V1440M1620 0V1440M1740 0V1440M1860 0V1440M1980 0V1440M2100 0V1440M2220 0V1440M2340 0V1440M2460 0V1440"/><path d="M1440 180H2560M1440 420H2560M1440 660H2560M1440 900H2560M1440 1140H2560"/></g>
+<rect x="300" y="390" width="66" height="8" rx="4" fill="#E95E3F"/>
+<text x="300" y="360" fill="#E95E3F" font-family="DM Sans,Arial,sans-serif" font-size="27" font-weight="700" letter-spacing="6">VOICE AI · WORKFLOW AUTOMATION</text>
+<text x="300" y="590" fill="#F5EFE5" font-family="Playfair Display,Georgia,serif" font-size="120" font-weight="600" letter-spacing="2">VOCORIX</text>
+<text x="300" y="700" fill="#F5EFE5" font-family="Playfair Display,Georgia,serif" font-size="56" font-weight="600">Conversations, routed to a next step.</text>
+<text x="300" y="780" fill="#A6A49F" font-family="DM Sans,Arial,sans-serif" font-size="32" font-weight="500">Voice experiences. Workflow design. Systems that stay in sync.</text>
+<path d="M300 860H580" stroke="#E95E3F" stroke-width="6" stroke-linecap="round"/>
+<g transform="translate(1840 420) scale(4.8)"><path d="M22 23 L49 55 Q56 63 63 55 L90 23" fill="none" stroke="#F5EFE5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 60 V81" fill="none" stroke="#F5EFE5" stroke-width="7" stroke-linecap="round"/><path d="M56 81 H78" fill="none" stroke="#F5EFE5" stroke-width="7" stroke-linecap="round"/><circle cx="88" cy="81" r="5.5" fill="#E95E3F"/></g>
 </svg>
