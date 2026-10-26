@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import EmailPromptLink from "@/components/email-prompt-link";
 
 export const metadata: Metadata = {
   title: "Our approach",
@@ -23,6 +24,6 @@ export default function ProcessPage() {
       <div className="principle reveal"><b>03</b><div><h3>Failures are part of the design</h3><p>Timeouts, unanswered calls, missing fields, and API errors need understandable fallback behaviour.</p></div></div>
       <div className="principle reveal"><b>04</b><div><h3>The process stays legible</h3><p>Clear rules and documentation make it easier for your team to review what the automation did and why.</p></div></div>
     </div></div></section>
-    <div className="cta"><div className="wrap"><p className="section-kicker">A practical next step</p><h2>Bring us the messy part.</h2><p>We’ll start with the process you want to improve—not a preselected tool, platform, or oversized scope.</p><div className="actions"><Link className="btn primary" href="/contact">Discuss a project <span className="arrow">↗</span></Link></div></div></div>
+    <div className="cta"><div className="wrap"><p className="section-kicker">A practical next step</p><h2>Bring us the messy part.</h2><p>We’ll start with the process you want to improve—not a preselected tool, platform, or oversized scope.</p><div className="actions"><EmailPromptLink className="btn primary" intent="project">Discuss a project <span className="arrow">↗</span></EmailPromptLink></div></div></div>
   </main>;
 }
