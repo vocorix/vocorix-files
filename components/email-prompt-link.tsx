@@ -4,6 +4,7 @@ import type { MouseEvent, ReactNode } from "react";
 
 const EMAIL = "swastik@vocorix.com";
 const STORAGE_KEY = "vocorix-email-draft-clicks";
+let fallbackClicks = 0;
 
 type EmailPromptLinkProps = {
   children: ReactNode;
@@ -128,7 +129,8 @@ function getNextDraft(intent: EmailPromptLinkProps["intent"]): EmailDraft {
     count = Number.isSafeInteger(stored) && stored >= 0 ? stored : 0;
     window.sessionStorage.setItem(STORAGE_KEY, String(count + 1));
   } catch {
-    // Storage can be unavailable in private browsing. The first draft remains usable.
+    // Keep rotating drafts even when browser storage is unavailable.
+    count = Date.now() + fallbackClicks++;
   }
 
   return drafts[count % drafts.length];
