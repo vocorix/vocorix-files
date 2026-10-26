@@ -1,4 +1,4 @@
-import { createHash } from "node:crypto";
+import { createHmac } from "node:crypto";
 import { contactSubmissionSchema } from "@/lib/lead-schema";
 import { getSupabaseAdmin } from "@/lib/supabase/admin";
 
@@ -83,8 +83,15 @@ export async function POST(request: Request) {
   const supabase = getSupabaseAdmin();
   if (!supabase) return reply("The enquiry form is being connected. Please email swastik@vocorix.com for now.", 503);
 
-  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown";
-  const rateKey = createHash("sha256").update(ip + ":" + (process.env.RATE_LIMIT_SALT || process.env.SUPABASE_URL || "vocorix-contact-v1")).digest("hex");
+  const ip = request.headers.get("x-real-ip")
+    || request.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim()
+    || request.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
+    || "unknown";
+  const rateSecret = process.env.RATE_LIMIT_SALT
+    || process.env.SUPABASE_SECRET_KEY
+    || process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!rateSecret) return reply("The enquiry service is being configured. Please email swastik@vocorix.com.", 503);
+  const rateKey = createHmac("sha256", rateSecret).update(ip).digest("hex");
   const limited = await supabase.rpc("consume_api_rate_limit", { p_key_hash: rateKey, p_window_seconds: 60, p_max_requests: 5 });
   if (limited.error) {
     console.error("Contact rate-limit check failed:", limited.error.code || "unknown");
