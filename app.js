@@ -23,7 +23,10 @@ document.getElementById("site-header").innerHTML =
 document.getElementById("site-footer").innerHTML =
   '<div class="wrap"><div class="footer-main"><a class="footer-brand" href="index.html">' +
   '<img class="footer-logo" src="/brand/vocorix-logo-light.svg" alt="Vocorix"></a><div class="footer-links"><a href="services.html">Capabilities</a>' +
-  '<a href="process.html">Our approach</a><a href="contact.html">Contact</a></div></div><div class="footer-bottom"><span>© ' +
+  '<a href="process.html">Our approach</a><a href="contact.html">Contact</a></div></div><div class="footer-social" aria-label="Vocorix social profiles">' +
+  '<a href="https://www.instagram.com/vocorix/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>' +
+  '<a href="https://www.linkedin.com/company/144046215/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>' +
+  '<a href="https://www.facebook.com/profile.php?id=1371446352725758" target="_blank" rel="noopener noreferrer">Facebook ↗</a></div><div class="footer-bottom"><span>© ' +
   new Date().getFullYear() + ' Vocorix. Built around your workflow.</span><a data-mail-draft href="' + generalMail + '">' +
   CONFIG.email + '</a></div></div>';
 document.querySelectorAll("[data-phone]").forEach(function(a) {
