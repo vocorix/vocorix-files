@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import HeroVisual from "@/components/hero-visual";
+import EmailPromptLink from "@/components/email-prompt-link";
 
 export const metadata: Metadata = {
   title: "Voice AI & workflow automation",
@@ -40,6 +41,6 @@ export default function HomePage() {
       <div className="reveal"><p className="section-kicker">A more considered approach</p><h2>Automation with guardrails, not guesswork.</h2><p>Each workflow is scoped around the decisions your team actually makes, with clear rules for when automation should stop and a person should take over.</p><Link className="inline-link" href="/process">See our approach <span className="arrow">↗</span></Link></div>
       <div className="principles"><div className="principle reveal"><b>01</b><div><h3>Your rules come first</h3><p>We map the questions, boundaries, and outcomes before selecting tools or building flows.</p></div></div><div className="principle reveal"><b>02</b><div><h3>People stay in control</h3><p>Escalations, exception paths, and live handoffs are part of the design—not an afterthought.</p></div></div><div className="principle reveal"><b>03</b><div><h3>The systems connect</h3><p>Useful automation logs outcomes and passes context into the CRM and tools your team uses.</p></div></div></div>
     </div></section>
-    <div className="cta"><div className="wrap"><p className="section-kicker">Start with the workflow</p><h2>Let’s find the part worth automating.</h2><p>Bring one process that feels manual, slow, or easy to drop. We’ll map the handoffs and identify where voice AI or automation could help.</p><div className="actions"><Link className="btn primary" href="/contact">Discuss a project <span className="arrow">↗</span></Link><Link className="btn outline" href="/contact">Get in touch <span className="arrow">↗</span></Link></div></div></div>
+    <div className="cta"><div className="wrap"><p className="section-kicker">Start with the workflow</p><h2>Let’s find the part worth automating.</h2><p>Bring one process that feels manual, slow, or easy to drop. We’ll map the handoffs and identify where voice AI or automation could help.</p><div className="actions"><EmailPromptLink className="btn primary" intent="project">Discuss a project <span className="arrow">↗</span></EmailPromptLink><Link className="btn outline" href="/contact">Get in touch <span className="arrow">↗</span></Link></div></div></div>
   </main>;
 }
