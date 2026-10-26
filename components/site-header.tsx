@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import BrandMark from "@/components/brand-mark";
+import EmailPromptLink from "@/components/email-prompt-link";
 
 const links = [
   { href: "/", label: "Overview" },
@@ -21,7 +22,7 @@ export default function SiteHeader() {
         </Link>
         <nav className="nav" aria-label="Main navigation">
           {links.map((link) => <Link key={link.href} href={link.href} aria-current={pathname === link.href ? "page" : undefined}>{link.label}</Link>)}
-          <Link className="btn dark sm" href="/contact">Discuss a project <span className="arrow">↗</span></Link>
+          <EmailPromptLink className="btn dark sm" intent="project">Discuss a project <span className="arrow">↗</span></EmailPromptLink>
         </nav>
       </div>
     </header>
