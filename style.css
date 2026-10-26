@@ -60,3 +60,8 @@ a[href^="tel:"],a[href^="mailto:"]{overflow-wrap:anywhere}
 @media(max-width:740px){
   .contact-form,.contact-aside{grid-column:auto;grid-row:auto}
 }
+
+/* Social profile links share the same quiet editorial treatment as the rest of the footer. */
+.footer-social{display:flex;flex-wrap:wrap;gap:18px;margin:18px 0 0;padding-top:16px;border-top:1px solid rgba(246,242,235,.12)}
+.footer-social a{color:#B9BDC0;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.02em;transition:color .2s ease}
+.footer-social a:hover{color:#F5A28F}
