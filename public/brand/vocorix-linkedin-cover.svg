@@ -1,19 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1128" height="191" viewBox="0 0 1128 191" role="img" aria-labelledby="title desc">
-<title id="title">Vocorix LinkedIn company cover</title>
-<desc id="desc">Vocorix — Connect every conversation to action. Voice AI and workflow automation.</desc>
+<title id="title">Vocorix LinkedIn company cover</title><desc id="desc">Vocorix. Conversations routed to a clear next step.</desc>
 <rect width="1128" height="191" fill="#14171B"/>
-<circle cx="1012" cy="89" r="155" fill="none" stroke="#F6F2EB" stroke-opacity=".065" stroke-width="1.5"/>
-<circle cx="1012" cy="89" r="119" fill="none" stroke="#F6F2EB" stroke-opacity=".055" stroke-width="1.5"/>
-<circle cx="1012" cy="89" r="83" fill="none" stroke="#F06445" stroke-opacity=".22" stroke-width="1.5"/>
-<g transform="translate(875 34) scale(1.1)">
-<path d="M81.46 30.54 A36 36 0 1 0 92 56" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M88 56H100" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round"/>
-<circle cx="104" cy="56" r="5.2" fill="#F06445"/>
+<g fill="none" stroke="#F6F2EB" stroke-opacity=".08" stroke-width="1.5"><path d="M720 0V191M770 0V191M820 0V191M870 0V191M920 0V191M970 0V191M1020 0V191M1070 0V191"/><path d="M650 36H1128M650 76H1128M650 116H1128M650 156H1128"/></g>
+<rect x="55" y="36" width="27" height="3" rx="1.5" fill="#F06445"/>
+<text x="55" y="27" fill="#F06445" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.1">VOICE AI · WORKFLOW AUTOMATION</text>
+<text x="55" y="83" fill="#F6F2EB" font-family="Manrope,Arial,sans-serif" font-size="32" font-weight="800" letter-spacing="1.6">VOCORIX</text>
+<text x="55" y="120" fill="#F6F2EB" font-family="Manrope,Arial,sans-serif" font-size="20" font-weight="600">Conversations, routed to a next step.</text>
+<text x="55" y="150" fill="#B9BDC0" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="500">Voice experiences. Workflow design. Systems that stay in sync.</text>
+<g transform="translate(858 21) scale(1.45)">
+<path d="M22 23 L49 55 Q56 63 63 55 L90 23" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M56 60 V81" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round"/>
+<path d="M56 81 H78" fill="none" stroke="#F6F2EB" stroke-width="7" stroke-linecap="round"/>
+<circle cx="88" cy="81" r="5.5" fill="#F06445"/>
 </g>
-<rect x="55" y="41" width="27" height="3" rx="1.5" fill="#F06445"/>
-<text x="55" y="31" fill="#F06445" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.1">VOICE AI · WORKFLOW AUTOMATION</text>
-<text x="55" y="88" fill="#F6F2EB" font-family="Manrope,Arial,sans-serif" font-size="31" font-weight="800" letter-spacing="1.6">VOCORIX</text>
-<text x="55" y="124" fill="#F6F2EB" font-family="Manrope,Arial,sans-serif" font-size="19" font-weight="600">Connect every conversation to action.</text>
-<text x="55" y="153" fill="#B9BDC0" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="500">Practical automation. Thoughtful integrations. Human handoffs.</text>
-<rect x="55" y="170" width="170" height="2" rx="1" fill="#F06445" opacity=".8"/>
+<path d="M55 171H225" stroke="#F06445" stroke-width="2" stroke-linecap="round"/>
 </svg>
