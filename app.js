@@ -109,7 +109,7 @@ document.querySelectorAll("[data-mail-draft]").forEach(function(a) {
   var ringCurve = new THREE.CatmullRomCurve3(points, false, "centripetal");
   core.add(new THREE.Mesh(
     new THREE.TubeGeometry(ringCurve, 260, 0.032, 8, false),
-    new THREE.MeshStandardMaterial({ color: 0xF6F2EB, metalness: 0.18, roughness: 0.32, transparent: true, opacity: 0.91 })
+    new THREE.MeshStandardMaterial({ color: 0xF3EFE6, metalness: 0.18, roughness: 0.32, transparent: true, opacity: 0.91 })
   ));
   var innerPoints = [];
   for (var j = 0; j <= 140; j++) {
@@ -118,7 +118,7 @@ document.querySelectorAll("[data-mail-draft]").forEach(function(a) {
   }
   core.add(new THREE.Mesh(
     new THREE.TubeGeometry(new THREE.CatmullRomCurve3(innerPoints, false, "centripetal"), 200, 0.008, 6, false),
-    new THREE.MeshBasicMaterial({ color: 0xF06445, transparent: true, opacity: 0.52 })
+    new THREE.MeshBasicMaterial({ color: 0xC6F26B, transparent: true, opacity: 0.52 })
   ));
   // Keep the signal inside the open-core mark instead of sending stray lines beyond it.
   function addTube(pathPoints, radius, material) {
@@ -126,19 +126,19 @@ document.querySelectorAll("[data-mail-draft]").forEach(function(a) {
     core.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 60, radius, 8, false), material));
     return curve;
   }
-  var node = new THREE.Mesh(new THREE.SphereGeometry(0.075, 20, 20), new THREE.MeshStandardMaterial({ color: 0xF06445, metalness: 0.25, roughness: 0.3 }));
+  var node = new THREE.Mesh(new THREE.SphereGeometry(0.075, 20, 20), new THREE.MeshStandardMaterial({ color: 0xC6F26B, metalness: 0.25, roughness: 0.3 }));
   node.position.set(1.55, 0.64, 0.04);
   core.add(node);
-  var node2 = new THREE.Mesh(new THREE.SphereGeometry(0.048, 16, 16), new THREE.MeshBasicMaterial({ color: 0xF6F2EB }));
+  var node2 = new THREE.Mesh(new THREE.SphereGeometry(0.048, 16, 16), new THREE.MeshBasicMaterial({ color: 0xF3EFE6 }));
   node2.position.set(1.55, -0.64, 0.05);
   core.add(node2);
-  var pulse = new THREE.Mesh(new THREE.SphereGeometry(0.05, 18, 18), new THREE.MeshBasicMaterial({ color: 0xF06445 }));
+  var pulse = new THREE.Mesh(new THREE.SphereGeometry(0.05, 18, 18), new THREE.MeshBasicMaterial({ color: 0xC6F26B }));
   core.add(pulse);
-  scene.add(new THREE.AmbientLight(0xF6F2EB, 0.78));
-  var keyLight = new THREE.PointLight(0xF5A28F, 2.0, 14);
+  scene.add(new THREE.AmbientLight(0xF3EFE6, 0.78));
+  var keyLight = new THREE.PointLight(0xC6F26B, 2.0, 14);
   keyLight.position.set(2.8, 2.2, 3.8);
   scene.add(keyLight);
-  var fillLight = new THREE.PointLight(0xF6F2EB, 0.65, 12);
+  var fillLight = new THREE.PointLight(0xF3EFE6, 0.65, 12);
   fillLight.position.set(-3, -1, 2);
   scene.add(fillLight);
   var mx = 0, my = 0, active = !document.hidden, running = false;
