@@ -37,7 +37,7 @@ document.querySelectorAll("[data-mail]").forEach(function(a) {
   a.href = generalMail;
 });
 document.querySelectorAll("[data-book]").forEach(function(a) {
-  a.href = projectMail;
+  a.href = "contact.html#contact-form";
 });
 document.querySelectorAll("[data-mail-draft]").forEach(function(a) {
   a.href = generalMail;
@@ -82,7 +82,9 @@ document.querySelectorAll("[data-mail-draft]").forEach(function(a) {
 })();
 // Purpose-built 3D version of the Vocorix "open core": the gap routes a signal toward an outcome.
 
-// Lead forms send to email via FormSubmit (no backend needed).
+// Lead forms: saved to Supabase (insert-only table) and emailed via FormSubmit.
+const SUPABASE_URL = "https://gnciulkwhajhqgpshmtb.supabase.co";
+const SUPABASE_KEY = "sb_publishable_e28SjwMBk7z_n17q_DLiIQ_ox6dxF3W";
 document.querySelectorAll("[data-lead-form]").forEach(function(form) {
   var status = form.querySelector(".form-status");
   var button = form.querySelector("button[type=submit]");
@@ -91,17 +93,36 @@ document.querySelectorAll("[data-lead-form]").forEach(function(form) {
     if (!form.checkValidity()) { form.reportValidity(); return; }
     var data = new FormData(form);
     if (data.get("_honey")) return;
-    data.delete("_honey");
-    data.append("_subject", "New Vocorix enquiry from " + (data.get("name") || "website"));
-    data.append("_template", "table");
-    data.append("_captcha", "false");
-    data.append("page", location.pathname);
+    var lead = {
+      name: String(data.get("name") || "").trim(),
+      email: String(data.get("email") || "").trim(),
+      company: String(data.get("company") || "").trim() || null,
+      phone: String(data.get("phone") || "").trim() || null,
+      message: String(data.get("message") || "").trim(),
+      page: location.pathname
+    };
     button.disabled = true;
     status.textContent = "Sending...";
-    fetch("https://formsubmit.co/ajax/" + CONFIG.email, { method: "POST", headers: { "Accept": "application/json" }, body: data })
-      .then(function(r) { return r.json().then(function(j) { if (!r.ok || String(j.success) !== "true") throw new Error(j.message || "Failed"); }); })
-      .then(function() { form.reset(); status.textContent = "Thanks, your message has been sent. We'll reply by email soon."; })
-      .catch(function() { status.textContent = "Sorry, that didn't send. Please email " + CONFIG.email + " directly."; })
-      .finally(function() { button.disabled = false; });
+    var save = fetch(SUPABASE_URL + "/rest/v1/vocorix_website_enquiries", {
+      method: "POST",
+      headers: { "apikey": SUPABASE_KEY, "Content-Type": "application/json", "Prefer": "return=minimal" },
+      body: JSON.stringify(lead)
+    }).then(function(r) { if (!r.ok) throw new Error("save"); });
+    var mail = new FormData();
+    Object.keys(lead).forEach(function(k) { if (lead[k]) mail.append(k, lead[k]); });
+    mail.append("_subject", "New Vocorix enquiry from " + lead.name);
+    mail.append("_template", "table");
+    mail.append("_captcha", "false");
+    var notify = fetch("https://formsubmit.co/ajax/" + CONFIG.email, { method: "POST", headers: { "Accept": "application/json" }, body: mail })
+      .then(function(r) { if (!r.ok) throw new Error("mail"); });
+    Promise.allSettled([save, notify]).then(function(results) {
+      if (results.some(function(r) { return r.status === "fulfilled"; })) {
+        form.reset();
+        status.textContent = "Thanks, your message has been sent. We'll reply by email soon.";
+      } else {
+        status.textContent = "Sorry, that didn't send. Please email " + CONFIG.email + " directly.";
+      }
+      button.disabled = false;
+    });
   });
 });
