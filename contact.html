@@ -6,40 +6,20 @@
 <meta property="og:title" content="Contact | Vocorix"><meta property="og:description" content="Start with one process you want to make more reliable."><meta property="og:url" content="https://vocorix.com/contact.html"></head><body><header id="site-header"></header><main>
 <div class="hero small"><div class="wrap"><p class="eyebrow">Contact</p><h1>Tell us what you would like to make easier.</h1><p class="lede">Maybe calls go unanswered, follow-ups slip, or your team spends too much time copying details between tools. Tell us a little about it and we’ll work out a sensible next step.</p></div></div>
 <section><div class="wrap"><div class="contact"><div class="contact-links">
-<a class="line" data-phone href="#"><span><small>Call the demo number</small><span data-phone="text">+1 (707) 340-6743</span></span><span class="arrow">→</span></a>
-<a class="line" data-book href="#"><span><small>Email about your project</small>Email us about your workflow</span><span class="arrow">→</span></a>
 <a class="line" data-mail href="#"><span><small>Email</small><span>swastik@vocorix.com</span></span><span class="arrow">→</span></a>
 </div>
-<form class="contact-form" id="contact-form">
-  <h2>Tell us a little about it</h2>
-  <p class="form-intro">Share the basics and your email app will open with a draft you can review.</p>
+<form class="contact-form" id="contact-form" data-lead-form novalidate>
+  <h2>Tell us about your calls</h2>
+  <p class="form-intro">Send this and we'll reply by email, usually within one business day.</p>
   <label for="name">Your name</label><input id="name" name="name" autocomplete="name" required maxlength="100" placeholder="Name">
   <label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="160" placeholder="you@company.com">
-  <label for="company">Company <span class="optional">(optional)</span></label><input id="company" name="company" autocomplete="organization" maxlength="120" placeholder="Company name">
-  <label for="workflow">What would you like to improve?</label><textarea id="workflow" name="workflow" rows="5" required maxlength="3000" placeholder="A few lines about the process, the tools involved, or what is taking too much time."></textarea>
-  <button class="btn primary" type="submit">Prepare email <span class="arrow" aria-hidden="true">→</span></button>
-  <p class="form-status" id="form-status" aria-live="polite">Nothing is sent until you press Send in your email app.</p>
+  <label for="company">Business <span class="optional">(optional)</span></label><input id="company" name="company" autocomplete="organization" maxlength="120" placeholder="Business or agency name">
+  <label for="phone">Phone <span class="optional">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="Best number to reach you">
+  <label for="message">What would you like the receptionist to handle?</label><textarea id="message" name="message" rows="5" required maxlength="3000" placeholder="For example: after-hours calls, bookings in your PMS, transfers to your team."></textarea>
+  <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <button class="btn primary" type="submit">Send message <span class="arrow" aria-hidden="true">→</span></button>
+  <p class="form-status" id="form-status" aria-live="polite"></p>
 </form>
 <aside class="contact-aside"><p class="eyebrow">A good place to start</p><h3>What to bring</h3><p>A quick note about the process, the tools you use, and what is getting in the way is plenty. You do not need to have everything figured out.</p><p>We can talk through what would help, what needs care, and where to start. If automation is not the right fit for a step, we will be honest about that.</p></aside></div></div></section>
 </main><footer id="site-footer"></footer><script type="module" src="app.js"></script>
-<script>
-(function() {
-  var form = document.getElementById("contact-form");
-  if (!form) return;
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    var data = new FormData(form);
-    var name = String(data.get("name") || "").trim();
-    var email = String(data.get("email") || "").trim();
-    var company = String(data.get("company") || "").trim();
-    var workflow = String(data.get("workflow") || "").trim();
-    var subject = "Vocorix project enquiry" + (company ? " from " + company : "");
-    var body = "Hi Vocorix,\n\nName: " + name + "\nEmail: " + email +
-      (company ? "\nCompany: " + company : "") + "\n\nWhat I'd like to improve:\n" + workflow +
-      "\n\nThanks,\n" + name;
-    document.getElementById("form-status").textContent = "Your email app should open now. Review the message and press Send when you're ready.";
-    window.location.href = "mailto:swastik@vocorix.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-  });
-})();
-</script></body></html>
+</body></html>

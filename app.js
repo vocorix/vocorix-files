@@ -19,7 +19,7 @@ document.getElementById("site-header").innerHTML =
   pages.map(function(item) {
     return '<a href="' + item[0] + '"' + (item[0] === here ? ' aria-current="page"' : '') + '>' + item[1] + '</a>';
   }).join("") +
-  '<a class="btn dark sm" data-book href="' + projectMail + '">Discuss a project <span class="arrow" aria-hidden="true">→</span></a></nav><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button></div>';
+  '<a class="btn dark sm" href="index.html#get-started">Get started <span class="arrow" aria-hidden="true">→</span></a></nav><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button></div>';
 document.getElementById("site-footer").innerHTML =
   '<div class="wrap"><div class="footer-main"><a class="footer-brand" href="index.html">' +
   '<img class="footer-logo" src="/brand/vocorix-logo-light.svg" alt="Vocorix"></a><div class="footer-links"><a href="services.html">Capabilities</a>' +
@@ -81,3 +81,27 @@ document.querySelectorAll("[data-mail-draft]").forEach(function(a) {
   els.forEach(function(el) { observer.observe(el); });
 })();
 // Purpose-built 3D version of the Vocorix "open core": the gap routes a signal toward an outcome.
+
+// Lead forms send to email via FormSubmit (no backend needed).
+document.querySelectorAll("[data-lead-form]").forEach(function(form) {
+  var status = form.querySelector(".form-status");
+  var button = form.querySelector("button[type=submit]");
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var data = new FormData(form);
+    if (data.get("_honey")) return;
+    data.delete("_honey");
+    data.append("_subject", "New Vocorix enquiry from " + (data.get("name") || "website"));
+    data.append("_template", "table");
+    data.append("_captcha", "false");
+    data.append("page", location.pathname);
+    button.disabled = true;
+    status.textContent = "Sending...";
+    fetch("https://formsubmit.co/ajax/" + CONFIG.email, { method: "POST", headers: { "Accept": "application/json" }, body: data })
+      .then(function(r) { return r.json().then(function(j) { if (!r.ok || String(j.success) !== "true") throw new Error(j.message || "Failed"); }); })
+      .then(function() { form.reset(); status.textContent = "Thanks, your message has been sent. We'll reply by email soon."; })
+      .catch(function() { status.textContent = "Sorry, that didn't send. Please email " + CONFIG.email + " directly."; })
+      .finally(function() { button.disabled = false; });
+  });
+});
