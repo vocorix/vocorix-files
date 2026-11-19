@@ -23,7 +23,7 @@ npm run dev
 npm run build
 ```
 
-Vite builds the four HTML pages into `dist/`. Use `npm run build` as the build command and `dist` as the output directory.
+Vite builds the four HTML pages into `dist/`. `vercel.json` enables clean URLs (/services instead of /services.html). Use `npm run build` as the build command and `dist` as the output directory.
 
 ## Before launch
 - Confirm the demo phone number is correct and approved for public use.
